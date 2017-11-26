@@ -1,0 +1,6 @@
+c:\users\kerst\documents\visual studio 2015\Projects\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.exe.config
+c:\users\kerst\documents\visual studio 2015\Projects\InformativeWallpaper\InformativeWallpaper\obj\Debug\InformativeWallpaper.csprojResolveAssemblyReference.cache
+c:\users\kerst\documents\visual studio 2015\Projects\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.exe
+c:\users\kerst\documents\visual studio 2015\Projects\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.pdb
+c:\users\kerst\documents\visual studio 2015\Projects\InformativeWallpaper\InformativeWallpaper\obj\Debug\InformativeWallpaper.exe
+c:\users\kerst\documents\visual studio 2015\Projects\InformativeWallpaper\InformativeWallpaper\obj\Debug\InformativeWallpaper.pdb
