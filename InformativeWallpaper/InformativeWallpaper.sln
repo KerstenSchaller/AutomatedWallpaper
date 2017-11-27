@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformativeWallpaper", "InformativeWallpaper\InformativeWallpaper.csproj", "{AB10C1A8-3873-4CBA-8DF1-B7CD1F2FFB41}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedWallpaper", "InformativeWallpaper\AutomatedWallpaper.csproj", "{AB10C1A8-3873-4CBA-8DF1-B7CD1F2FFB41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

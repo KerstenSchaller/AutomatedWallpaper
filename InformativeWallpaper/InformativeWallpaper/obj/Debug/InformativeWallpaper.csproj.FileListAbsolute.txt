@@ -4,3 +4,9 @@ c:\users\kerst\documents\visual studio 2015\Projects\InformativeWallpaper\Inform
 c:\users\kerst\documents\visual studio 2015\Projects\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.pdb
 c:\users\kerst\documents\visual studio 2015\Projects\InformativeWallpaper\InformativeWallpaper\obj\Debug\InformativeWallpaper.exe
 c:\users\kerst\documents\visual studio 2015\Projects\InformativeWallpaper\InformativeWallpaper\obj\Debug\InformativeWallpaper.pdb
+C:\Users\kerst\Documents\GitHub\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.exe.config
+C:\Users\kerst\Documents\GitHub\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.exe
+C:\Users\kerst\Documents\GitHub\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.pdb
+C:\Users\kerst\Documents\GitHub\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\obj\Debug\InformativeWallpaper.csprojResolveAssemblyReference.cache
+C:\Users\kerst\Documents\GitHub\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\obj\Debug\InformativeWallpaper.exe
+C:\Users\kerst\Documents\GitHub\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\obj\Debug\InformativeWallpaper.pdb
