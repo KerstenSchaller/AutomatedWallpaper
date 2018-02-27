@@ -1,0 +1,10 @@
+What shall the software do?
+- Automatically create and change desktop background images
+- if two screens are used, images shall be extended/combind to fill both screens
+- source shall be an folder of images
+- configuration shall be done via a text file(maybe xml)
+
+
+
+Future version features:
+- embedded information in images(e.g. weather, date, time)
