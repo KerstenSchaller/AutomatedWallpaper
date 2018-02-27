@@ -8,6 +8,6 @@ image.
 
 Features:
 - two folders for source images(left and right) need to be present, at least one image in each
-- configuration file in executable folder needs to be changed
+- configuration file in executable folder needs to be changed, if not present it will be created at first run
 - images will be changed on left and right screen in the configured intervall
 - console window shows at startup but will be hidden from this moment
