@@ -1,9 +1,56 @@
-What shall the software do?
-- Automatically create and change desktop background images
-- if two screens are used, images shall be extended/combind to fill both screens
-- source shall be an folder of images
-- configuration shall be done via a text file(maybe xml)
+Summary: 
+AutomatedWallpaper is supposed to run automatically and change the desktop background 
+image in a given intervall. When two screens are used two images shall be combined to be displayed
+seperetaly on either monitor. Future versions might involve some embedding or further combining 
+of images. Eg Embedd several images into one to create collage. OR Embedd informations into an 
+image.
 
+
+What shall the software do? 
+- Automatically create and change desktop background images
+	- There shall be an an image object representing the current image
+	- the image object shall hold all information needed to display
+	
+- if two screens are used, images shall be extended/combind to fill both screens
+	- it shall be possible to combine two single images to create a new with appropriate resolution
+	- it shall be possible to automatically determine the needed screen resolution 
+- source shall be an folder of images
+	- 
+- configuration shall be done via a text file(maybe xml)
+	 
+NEEDED:
+- Aforge image processing library
+- XML serialzer code
+
+SW Modules:
+- Image object
+- config object(for loading and use)
+- configvalues object (for saving)
+- magaging class object
+- image processing object
+- wallpapercontroller object
+
+
+- wallpapercontroller object
+	- function set desktop background
+
+- managing class
+	- timer
+	- function image processing
+	- function load images from folder
+
+done
+- config manager class
+	- function check if config exists
+	- function create config
+	- function load config
+	
+		
+	   
+- image processing object
+	- function combine images
+	- function scale images
+	
 
 
 Future version features:

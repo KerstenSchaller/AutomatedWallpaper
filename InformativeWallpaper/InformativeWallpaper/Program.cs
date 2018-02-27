@@ -18,21 +18,12 @@ namespace InformativeWallpaper
        
         static void Main(string[] args)
         {
-            start_Wallpaper_permutation_from_folder();
+            Tester.testImageProcessor();
+            WallpaperConfiguration config = new WallpaperConfiguration();
             Console.ReadKey();
         }
 
-
-        public static void start_Wallpaper_permutation_from_folder()
-        {
-            string path = @"C:\Users\kerst\Desktop\100PHOTO";
-            WallpaperController wallpapercontroller = new WallpaperController();
-            wallpapercontroller.set_path_to_folder(path);
-            wallpapercontroller.set_timer_interval(10);
-            wallpapercontroller.start_timer();
-
-        }
-       
+        
         
 
         
