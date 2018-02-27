@@ -39,19 +39,6 @@ namespace InformativeWallpaper
         public WallpaperController()
         {
 
-            /*delete old temporary wallpaper*/
-            string tempPath = Path.Combine(Path.GetTempPath(), "wallpaper.bmp");
-            if (File.Exists(tempPath))
-            {
-                File.Delete(tempPath);
-            }
-
-            /*set timer properties*/
-            timer.Interval = 5000;
-            timer.Elapsed += TimerCallback;
-            timer.AutoReset = true;
-            timer.Start();
-
         }
 
 
@@ -196,24 +183,7 @@ namespace InformativeWallpaper
             }
         }
 
-        public  void start_timer()
-        {
-            timer.Start();
-        }
-
-        public void set_timer_interval(int seconds)
-        {
-            timer.Interval = seconds*1000;
-        }
-
-        private  void TimerCallback(Object o, System.Timers.ElapsedEventArgs e)
-        {
-            Console.WriteLine("timercallback entered");
-            set_image_by_folder(path_to_folder);
-            Set_desktop_wallpaper();
-            
-        }
-
+        
 
     }
 }

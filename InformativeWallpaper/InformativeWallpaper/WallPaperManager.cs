@@ -16,45 +16,60 @@ namespace InformativeWallpaper
         Bitmap wallpaper;
         WallPaperConfigurationValues config = new WallPaperConfigurationValues();
         WallpaperController wp_controller = new WallpaperController();
-
+        int loop_cntr_left = 0;
+        int loop_cntr_right = 0;
 
         Timer timer = new Timer();
+
+
         public WallPaperManager()
         {
             timer.AutoReset = true;
             timer.Elapsed += new ElapsedEventHandler(timer_Elapsed);
-            //timer.Start();
             config = WallpaperConfiguration.getWallpaperConfigurationValues();
-
+            timer.Interval = config.intervall_in_seconds * 1000;
+            timer.Start();
             updateWallpaper();
+        }
+
+        private Bitmap[] createBitmapsAccordingtoConfig()
+        {
+            Bitmap[] bitmaps;
+
+            string[] right_screen_images = getImagesfromFolder(config.rightScreenImageSourceFolder);
+            string[] left_screen_images = getImagesfromFolder(config.leftScreenImageSourceFolder);
+
+
+           
+            bitmaps = new Bitmap[] { new Bitmap(left_screen_images[loop_cntr_left]), new Bitmap(right_screen_images[loop_cntr_right]) };
+            
+            //scale images
+            bitmaps[0] = ImageProcessor.ResizeImage(bitmaps[0], config.x_resolution_left_screen, config.y_resolution_left_screen);
+            bitmaps[1] = ImageProcessor.ResizeImage(bitmaps[1], config.x_resolution_right_screen, config.y_resolution_right_screen);
+
+            if (loop_cntr_left == left_screen_images.Length-1)
+            {
+                loop_cntr_left = 0;
+            }
+            else
+            {
+                loop_cntr_left++;
+            }
+            if (loop_cntr_right == right_screen_images.Length - 1)
+            {
+                loop_cntr_right = 0;
+            }
+            else
+            {
+                loop_cntr_right++;
+            }
+            return bitmaps;
         }
 
         private void updateWallpaper()
         {
-            Bitmap[] bitmaps;
-
-            string[] images = getImagesfromFolder(config.ImageSourceFolder);
-            string[] static_images = getImagesfromFolder(config.staticImageSourceFolder);
-
-            if (config.right_image_static )
-            {
-                bitmaps = new Bitmap[] { new Bitmap(images[0]), new Bitmap(static_images[0]) };
-            }
-            else if (config.left_image_static )
-            {
-                    bitmaps = new Bitmap[] { new Bitmap(static_images[1]), new Bitmap(images[1]) };
-                
-            }
-            else
-            {
-                bitmaps = new Bitmap[] { new Bitmap(images[0]), new Bitmap(images[1]) };
-            }
-
-            
-            bitmaps[0]  = ImageProcessor.ResizeImage(bitmaps[0], config.x_resolution/2, config.y_resolution);
-            bitmaps[1] = ImageProcessor.ResizeImage(bitmaps[1], config.x_resolution / 2, config.y_resolution);
-
-            wallpaper = ImageProcessor.Combine(bitmaps, config.x_resolution, config.y_resolution,config.x_resolution/2);
+            Bitmap[] bitmaps = createBitmapsAccordingtoConfig();
+            wallpaper = ImageProcessor.Combine(bitmaps, config.x_resolution_left_screen + config.x_resolution_right_screen, Math.Max(config.y_resolution_left_screen,config.y_resolution_right_screen), config.x_resolution_left_screen );
             WallpaperController wp_controller = new WallpaperController();
             wp_controller.Set_desktop_wallpaper(wallpaper);
 
@@ -74,6 +89,8 @@ namespace InformativeWallpaper
         private void timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             updateWallpaper();
+            Console.WriteLine("timer elapsed.");
+           
 
         }
 

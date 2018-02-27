@@ -12,13 +12,7 @@ namespace InformativeWallpaper
 
         static public WallPaperConfigurationValues config_values = new WallPaperConfigurationValues();
         static private string config_file_path = "";
-        static private bool configedited = false;
-
-        public static bool getConfigEdited()
-        {
-            return configedited;
-        }
-
+        
         public static WallPaperConfigurationValues getWallpaperConfigurationValues()
         {
             string current_directory = Directory.GetCurrentDirectory();
@@ -54,23 +48,11 @@ namespace InformativeWallpaper
             {
                 config_values = Serialization.ReadFromXmlFile<WallPaperConfigurationValues>(config_file_path);
                 WallPaperConfigurationValues new_config = new WallPaperConfigurationValues();
-                if ((config_values.x_resolution == new_config.x_resolution) && (config_values.y_resolution == new_config.y_resolution))
-                {
-                    configedited = false;
-                }
-                else
-                {
-                    configedited = true;
-                }
-                
             }
             else
             {
                 createConfig();
-                configedited = false;
-
             }
-
         }
         
 
@@ -79,13 +61,12 @@ namespace InformativeWallpaper
     public class WallPaperConfigurationValues
     {
         public WallPaperConfigurationValues() { }
-        public Int32 x_resolution = 1000;
-        public Int32 y_resolution = 1000;
-        public string ImageSourceFolder = @"C:\WallpaperImageSourceFolder";
+        public Int32 x_resolution_left_screen = 1000;
+        public Int32 y_resolution_left_screen = 1000;
+        public Int32 x_resolution_right_screen = 1000;
+        public Int32 y_resolution_right_screen = 1000;
         public Int32 intervall_in_seconds = 15;
-        public bool left_image_static = true;
-        public bool right_image_static = false;
-        public string staticImageSourceFolder = @"C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\static_Images";
-        
+        public string leftScreenImageSourceFolder = @"C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\static_Images";
+        public string rightScreenImageSourceFolder = @"C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\testfolder";
     }
 }
