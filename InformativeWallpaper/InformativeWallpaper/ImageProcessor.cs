@@ -95,7 +95,7 @@ namespace InformativeWallpaper
                     foreach (System.Drawing.Bitmap image in images)
                     {
                         g.DrawImage(image,
-                          new System.Drawing.Rectangle(offset, 0, image.Width, image.Height));
+                        new System.Drawing.Rectangle(offset, 0, image.Width, image.Height));
                         offset += image.Width;
                     }
                 }
@@ -118,5 +118,57 @@ namespace InformativeWallpaper
                 }
             }
         }
+
+
+        public static System.Drawing.Bitmap Combine(Bitmap[] bitmaps,int x_res, int y_res,int right_image_offset)
+        {
+            //read all images into memory
+            List<System.Drawing.Bitmap> images = new List<System.Drawing.Bitmap>();
+            System.Drawing.Bitmap finalImage = null;
+
+            try
+            {
+
+
+                foreach (Bitmap bitmap in bitmaps)
+                {
+
+                    images.Add(bitmap);
+                }
+
+                //create a bitmap to hold the combined image
+                finalImage = new System.Drawing.Bitmap(x_res, y_res);
+
+                //get a graphics object from the image so we can draw on it
+                using (System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(finalImage))
+                {
+                    //set background color
+                    g.Clear(System.Drawing.Color.Black);
+
+                    
+                        g.DrawImage(images[0], new System.Drawing.Rectangle(0, 0, images[0].Width, images[0].Height));
+                        g.DrawImage(images[1], new System.Drawing.Rectangle(right_image_offset, 0, images[1].Width, images[1].Height));
+                
+                }
+
+                return finalImage;
+            }
+            catch (Exception ex)
+            {
+                if (finalImage != null)
+                    finalImage.Dispose();
+
+                throw ex;
+            }
+            finally
+            {
+                //clean up memory
+                foreach (System.Drawing.Bitmap image in images)
+                {
+                    image.Dispose();
+                }
+            }
+        }
+
     }
 }

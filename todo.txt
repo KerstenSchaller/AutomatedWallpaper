@@ -46,7 +46,7 @@ done
 	- function load config
 	
 		
-	   
+50% adapt combine function to specific needs	   
 - image processing object
 	- function combine images
 	- function scale images

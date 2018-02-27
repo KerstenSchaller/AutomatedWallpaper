@@ -7,9 +7,3 @@ C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpa
 C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.exe
 C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.pdb
 C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\obj\Debug\AutomatedWallpaper.csprojResolveAssemblyReference.cache
-C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\AForge.dll
-C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\AForge.Imaging.dll
-C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\AForge.Math.dll
-C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\AForge.xml
-C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\AForge.Imaging.xml
-C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\AForge.Math.xml

@@ -8,6 +8,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Net;
+using System.Drawing;
 
 namespace InformativeWallpaper
 {
@@ -19,8 +20,10 @@ namespace InformativeWallpaper
         static void Main(string[] args)
         {
             Tester.testImageProcessor();
-            WallpaperConfiguration config = new WallpaperConfiguration();
-            Console.ReadKey();
+
+
+            WallPaperManager wpm = new WallPaperManager();
+             
         }
 
         

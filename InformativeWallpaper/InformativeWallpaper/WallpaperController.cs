@@ -154,7 +154,7 @@ namespace InformativeWallpaper
             
         }
 
-        private  void Set_desktop_wallpaper(System.Drawing.Image img, Style style = Style.Stretched)
+        public  void Set_desktop_wallpaper(System.Drawing.Image img, Style style = Style.Stretched)
         {
 
             string tempPath = Path.Combine(Path.GetTempPath(), "wallpaper.bmp");

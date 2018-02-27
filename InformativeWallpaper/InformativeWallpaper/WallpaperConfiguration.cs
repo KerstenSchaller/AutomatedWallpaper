@@ -7,18 +7,24 @@ using System.Threading.Tasks;
 
 namespace InformativeWallpaper
 {
-    class WallpaperConfiguration
+    static class WallpaperConfiguration
     {
 
-        public WallPaperConfigurationValues config_values = new WallPaperConfigurationValues();
-        private string config_file_path = "";
-        private bool configedited = false;
+        static public WallPaperConfigurationValues config_values = new WallPaperConfigurationValues();
+        static private string config_file_path = "";
+        static private bool configedited = false;
 
-        public WallpaperConfiguration()
+        public static bool getConfigEdited()
+        {
+            return configedited;
+        }
+
+        public static WallPaperConfigurationValues getWallpaperConfigurationValues()
         {
             string current_directory = Directory.GetCurrentDirectory();
-            this.config_file_path = Path.Combine(current_directory, "WallPaperConfiguration.cfg");
-            this.loadConfig();
+            config_file_path = Path.Combine(current_directory, "WallPaperConfiguration.cfg");
+            loadConfig();
+            return config_values;
         }
 
 
@@ -26,13 +32,13 @@ namespace InformativeWallpaper
         /// Checks if a configuration exists 
         /// </summary>
         /// <returns>bool value to indicate wether configuration file exists in the working dir or not</returns>
-        private bool checkIfConfigExists()
+        private static bool checkIfConfigExists()
         {
             bool config_exists = File.Exists(config_file_path);
             return config_exists;
         }
 
-        private void createConfig()
+        private static void createConfig()
         {
             Serialization.WriteToXmlFile(config_file_path, config_values, false);
         }
@@ -41,20 +47,20 @@ namespace InformativeWallpaper
         /// Loads a configuration from XML file
         /// </summary>
         /// <returns>object of WallPaperConfigurationValues</returns>
-        public void loadConfig()
+        private static void loadConfig()
         {
             bool config_exists = checkIfConfigExists();
             if (config_exists)
             {
-                this.config_values = Serialization.ReadFromXmlFile<WallPaperConfigurationValues>(config_file_path);
+                config_values = Serialization.ReadFromXmlFile<WallPaperConfigurationValues>(config_file_path);
                 WallPaperConfigurationValues new_config = new WallPaperConfigurationValues();
                 if ((config_values.x_resolution == new_config.x_resolution) && (config_values.y_resolution == new_config.y_resolution))
                 {
-                    this.configedited = false;
+                    configedited = false;
                 }
                 else
                 {
-                    this.configedited = true;
+                    configedited = true;
                 }
                 
             }
@@ -76,6 +82,10 @@ namespace InformativeWallpaper
         public Int32 x_resolution = 1000;
         public Int32 y_resolution = 1000;
         public string ImageSourceFolder = @"C:\WallpaperImageSourceFolder";
+        public Int32 intervall_in_seconds = 15;
+        public bool left_image_static = true;
+        public bool right_image_static = false;
+        public string staticImageSourceFolder = @"C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\static_Images";
         
     }
 }
