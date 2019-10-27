@@ -1,9 +1,0 @@
-C:\Users\kerst\Documents\GitHub\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.exe.config
-C:\Users\kerst\Documents\GitHub\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\obj\Debug\InformativeWallpaper.exe
-C:\Users\kerst\Documents\GitHub\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\obj\Debug\InformativeWallpaper.pdb
-C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.exe.config
-C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\obj\Debug\InformativeWallpaper.exe
-C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\obj\Debug\InformativeWallpaper.pdb
-C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.exe
-C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\InformativeWallpaper.pdb
-C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\obj\Debug\AutomatedWallpaper.csprojResolveAssemblyReference.cache
