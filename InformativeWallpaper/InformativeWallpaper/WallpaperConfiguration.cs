@@ -37,6 +37,12 @@ namespace InformativeWallpaper
             Serialization.WriteToXmlFile(config_file_path, config_values, false);
         }
 
+        public static void saveNewConfig(WallPaperConfigurationValues config)
+        {
+            config_values = config;
+            createConfig();
+        }
+
         /// <summary>
         /// Loads a configuration from XML file
         /// </summary>
@@ -66,7 +72,7 @@ namespace InformativeWallpaper
         public Int32 x_resolution_right_screen = 1000;
         public Int32 y_resolution_right_screen = 1000;
         public Int32 intervall_in_seconds = 15;
-        public string leftScreenImageSourceFolder = @"C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\static_Images";
-        public string rightScreenImageSourceFolder = @"C:\Users\kerst\Desktop\AutomatedWallpaper\InformativeWallpaper\InformativeWallpaper\bin\Debug\testfolder";
+        public string leftScreenImageSourceFolder = Directory.GetCurrentDirectory();
+        public string rightScreenImageSourceFolder = Directory.GetCurrentDirectory();
     }
 }
