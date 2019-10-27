@@ -58,6 +58,7 @@ namespace InformativeWallpaper
         public WallpaperConfigControl()
         {
             InitializeComponent();
+
         }
 
 
@@ -416,13 +417,30 @@ namespace InformativeWallpaper
 
         private void WallpaperConfigControl_Load(object sender, EventArgs e)
         {
-            radioButton_leftScreen_ImageFromFolder.Checked = true;
-            radioButton_rightScreen_ImageFromFolder.Checked = true;
-            textBox_Intervall_seconds.Text = "15";
-            textBox_leftScreen_XRes.Text = "1000";
-            textBox_leftScreen_YRes.Text = "1000";
-            textBox_rightScreen_XRes.Text = "1000";
-            textBox_rightScreen_YRes.Text = "1000";
+            var config = WallpaperConfiguration.getWallpaperConfigurationValues();
+            radioButton_leftScreen_ImageFromFolder.Checked = !config.leftScreenStatic;
+            radioButton_rightScreen_ImageFromFolder.Checked = !config.rightScreenStatic;
+            textBox_Intervall_seconds.Text = config.intervall_in_seconds.ToString();
+            textBox_leftScreen_XRes.Text = config.x_resolution_left_screen.ToString();
+            textBox_leftScreen_YRes.Text = config.y_resolution_left_screen.ToString();
+            textBox_rightScreen_XRes.Text = config.x_resolution_right_screen.ToString();
+            textBox_rightScreen_YRes.Text = config.y_resolution_right_screen.ToString();
+            if (config.leftScreenStatic)
+            {
+                textBox__leftScreen_path_staticImage.Text = config.leftScreenImageSource;
+            }
+            else
+            {
+                textBox__leftScreen_path_Folder.Text = config.leftScreenImageSource;
+            }
+            if (config.rightScreenStatic)
+            {
+                textBox__rightScreen_path_staticImage.Text = config.rightScreenImageSource;
+            }
+            else
+            {
+                textBox__rightScreen_path_Folder.Text = config.rightScreenImageSource;
+            }
         }
 
         private void groupBox_RightScreen_Enter(object sender, EventArgs e)
@@ -509,8 +527,11 @@ namespace InformativeWallpaper
 
         private void button_stop_Click(object sender, EventArgs e)
         {
-            this.wallpapermanager.stopTimer();
-            this.wallpapermanager = null;
+            if (this.wallpapermanager != null)
+            { 
+                this.wallpapermanager.stopTimer();
+                this.wallpapermanager = null;
+            }
         }
 
         private void textBox_Intervall_seconds_TextChanged(object sender, EventArgs e)

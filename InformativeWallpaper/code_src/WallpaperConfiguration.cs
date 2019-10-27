@@ -28,12 +28,14 @@ namespace InformativeWallpaper
         /// <returns>bool value to indicate wether configuration file exists in the working dir or not</returns>
         private static bool checkIfConfigExists()
         {
+            config_file_path = Path.Combine(Directory.GetCurrentDirectory(), "WallPaperConfiguration.cfg");
             bool config_exists = File.Exists(config_file_path);
             return config_exists;
         }
 
         private static void createConfig()
         {
+            config_file_path = Path.Combine(Directory.GetCurrentDirectory(), "WallPaperConfiguration.cfg");
             Serialization.WriteToXmlFile(config_file_path, config_values, false);
         }
 
