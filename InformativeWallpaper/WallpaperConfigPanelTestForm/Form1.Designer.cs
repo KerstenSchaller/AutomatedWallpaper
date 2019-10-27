@@ -33,16 +33,16 @@
             // 
             // wallpaperConfigControl1
             // 
-            this.wallpaperConfigControl1.Location = new System.Drawing.Point(12, 41);
+            this.wallpaperConfigControl1.Location = new System.Drawing.Point(12, 12);
             this.wallpaperConfigControl1.Name = "wallpaperConfigControl1";
-            this.wallpaperConfigControl1.Size = new System.Drawing.Size(498, 184);
+            this.wallpaperConfigControl1.Size = new System.Drawing.Size(647, 431);
             this.wallpaperConfigControl1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 386);
+            this.ClientSize = new System.Drawing.Size(669, 386);
             this.Controls.Add(this.wallpaperConfigControl1);
             this.Name = "Form1";
             this.Text = "Tesform";

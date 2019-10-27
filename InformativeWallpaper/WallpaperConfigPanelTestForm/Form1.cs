@@ -16,5 +16,10 @@ namespace WallpaperConfigPanelTestForm
         {
             InitializeComponent();
         }
+
+        private void wallpaperConfigControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
