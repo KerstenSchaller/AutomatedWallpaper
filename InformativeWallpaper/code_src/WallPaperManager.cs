@@ -141,7 +141,7 @@ namespace InformativeWallpaper
             string source_folder = source;
             if (Directory.Exists(source_folder))
             {
-                string[] files = Directory.GetFiles(source_folder,"*JPG");
+                string[] files = Directory.GetFiles(source_folder,"*JPG|*jpg|*bmp|*jpeg|*JPEG");
                 return files;
             }
             return new string[] {""};
