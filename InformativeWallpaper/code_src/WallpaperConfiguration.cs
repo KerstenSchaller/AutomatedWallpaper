@@ -72,7 +72,9 @@ namespace InformativeWallpaper
         public Int32 x_resolution_right_screen = 1000;
         public Int32 y_resolution_right_screen = 1000;
         public Int32 intervall_in_seconds = 15;
-        public string leftScreenImageSourceFolder = Directory.GetCurrentDirectory();
-        public string rightScreenImageSourceFolder = Directory.GetCurrentDirectory();
+        public bool leftScreenStatic = false;
+        public bool rightScreenStatic = false;
+        public string leftScreenImageSource = Directory.GetCurrentDirectory();
+        public string rightScreenImageSource = Directory.GetCurrentDirectory();
     }
 }

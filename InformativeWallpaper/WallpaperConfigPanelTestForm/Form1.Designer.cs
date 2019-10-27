@@ -35,7 +35,7 @@
             // 
             this.wallpaperConfigControl1.Location = new System.Drawing.Point(12, 12);
             this.wallpaperConfigControl1.Name = "wallpaperConfigControl1";
-            this.wallpaperConfigControl1.Size = new System.Drawing.Size(647, 431);
+            this.wallpaperConfigControl1.Size = new System.Drawing.Size(616, 325);
             this.wallpaperConfigControl1.TabIndex = 0;
             // 
             // Form1

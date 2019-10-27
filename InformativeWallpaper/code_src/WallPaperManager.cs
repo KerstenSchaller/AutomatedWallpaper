@@ -23,27 +23,72 @@ namespace InformativeWallpaper
         System.Timers.Timer timer = new System.Timers.Timer();
 
 
+        public WallPaperManager(WallPaperConfigurationValues _config)
+        {
+            timer.AutoReset = true;
+            timer.Elapsed += new ElapsedEventHandler(timer_Elapsed);
+            config = _config;
+            WallpaperConfiguration.saveNewConfig(config);
+            timer.Interval = config.intervall_in_seconds * 1000;
+            timer.Start();
+            updateWallpaper();
+        }
+
         public WallPaperManager()
         {
             timer.AutoReset = true;
             timer.Elapsed += new ElapsedEventHandler(timer_Elapsed);
             config = WallpaperConfiguration.getWallpaperConfigurationValues();
             timer.Interval = config.intervall_in_seconds * 1000;
-            timer.Start();
             updateWallpaper();
         }
 
         private Bitmap[] createBitmapsAccordingtoConfig()
         {
             Bitmap[] bitmaps;
+            string[] right_screen_images;
+            if (config.rightScreenStatic == false)
+            {
+                right_screen_images = getImagesfromFolder(config.rightScreenImageSource);
+            }
+            else
+            {
+                right_screen_images = new string[] { config.rightScreenImageSource };
+            }
+            string[] left_screen_images;
+            if (config.leftScreenStatic == false)
+            {
+                left_screen_images = getImagesfromFolder(config.leftScreenImageSource);
+            }
+            else
+            {
+                left_screen_images = new string[] { config.leftScreenImageSource };
+            }
+            
 
-            string[] right_screen_images = getImagesfromFolder(config.rightScreenImageSourceFolder);
-            string[] left_screen_images = getImagesfromFolder(config.leftScreenImageSourceFolder);
-                
+
+            /*If folder is same for both screens share the images between the screens*/
+            if (config.rightScreenImageSource == config.leftScreenImageSource)
+            {
+                List<string> right_screen_images_temp = new List<string>();
+                List<string> left_screen_images_temp = new List<string>();
+                for (int i = 0; i < right_screen_images.Length-1; i += 2)
+                {
+                    left_screen_images_temp.Add(right_screen_images[i]);
+                    right_screen_images_temp.Add(right_screen_images[i+1]);
+                }
+                left_screen_images = left_screen_images_temp.ToArray();
+                right_screen_images = right_screen_images_temp.ToArray();
+            }
+
+           
 
             try
             {
-                bitmaps = new Bitmap[] { new Bitmap(left_screen_images[loop_cntr_left]), new Bitmap(right_screen_images[loop_cntr_right]) };
+                var leftimage = left_screen_images[loop_cntr_left];
+                var rightimage = right_screen_images[loop_cntr_right];
+                
+                bitmaps = new Bitmap[] { new Bitmap(leftimage), new Bitmap(rightimage) };
             }
             catch (Exception e)
             {
@@ -96,7 +141,7 @@ namespace InformativeWallpaper
             string source_folder = source;
             if (Directory.Exists(source_folder))
             {
-                string[] files = Directory.GetFiles(source_folder,"*jpg");
+                string[] files = Directory.GetFiles(source_folder,"*JPG");
                 return files;
             }
             return new string[] {""};
@@ -110,8 +155,14 @@ namespace InformativeWallpaper
 
         }
 
+        internal void stopTimer()
+        {
+            this.timer.Stop();
+        }
 
-
-
+        internal void startTimer()
+        {
+            this.timer.Start();
+        }
     }
 }
