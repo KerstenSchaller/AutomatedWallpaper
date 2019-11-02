@@ -1,0 +1,3 @@
+[submodule "submodules/ComicViewer"]
+	path = submodules/ComicViewer
+	url = https://github.com/KerstenSchaller/ComicViewer
