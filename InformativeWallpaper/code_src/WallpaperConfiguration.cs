@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Serialization;
+
 namespace InformativeWallpaper
 {
     static class WallpaperConfiguration
@@ -36,7 +38,7 @@ namespace InformativeWallpaper
         private static void createConfig()
         {
             config_file_path = Path.Combine(Directory.GetCurrentDirectory(), "WallPaperConfiguration.cfg");
-            Serialization.WriteToXmlFile(config_file_path, config_values, false);
+            Serialization.Serialization.WriteToXmlFile(config_file_path, config_values, false);
         }
 
         public static void saveNewConfig(WallPaperConfigurationValues config)
@@ -54,7 +56,7 @@ namespace InformativeWallpaper
             bool config_exists = checkIfConfigExists();
             if (config_exists)
             {
-                config_values = Serialization.ReadFromXmlFile<WallPaperConfigurationValues>(config_file_path);
+                config_values = Serialization.Serialization.ReadFromXmlFile<WallPaperConfigurationValues>(config_file_path);
                 WallPaperConfigurationValues new_config = new WallPaperConfigurationValues();
             }
             else

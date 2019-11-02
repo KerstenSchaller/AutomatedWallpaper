@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace InformativeWallpaper
+namespace Serialization
 {
     /// <summary>
     /// Functions for performing common XML Serialization operations.
