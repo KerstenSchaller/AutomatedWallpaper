@@ -45,6 +45,7 @@ namespace InformativeWallpaper
         private RadioButton radioButton_leftScreen_dilbertComic;
         private RadioButton radioButton_rightScreen_dilbertComic;
         private WallPaperManager wallpapermanager;
+        private RadioButton radioButton_rightScreenInactive;
         private Label label10;
 
         public WallpaperConfigControl()
@@ -77,7 +78,7 @@ namespace InformativeWallpaper
             if (radioButton_leftScreen_dilbertComic.Checked == true)
             {
                 this.textBox__leftScreen_path_Folder.Enabled = false;
-                this.textBox__leftScreen_path_staticImage.Enabled = true;
+                this.textBox__leftScreen_path_staticImage.Enabled = false;
             }
         }
 
@@ -108,9 +109,19 @@ namespace InformativeWallpaper
             }
         }
 
+        private void radioButton_rightScreenInactive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton_rightScreenInactive.Checked == true)
+            {
+                this.textBox__rightScreen_path_Folder.Enabled = false;
+                this.textBox__rightScreen_path_staticImage.Enabled = false;
+            }
+        }
+
         private void InitializeComponent()
         {
             this.LeftScreenGroupBox = new System.Windows.Forms.GroupBox();
+            this.radioButton_leftScreen_dilbertComic = new System.Windows.Forms.RadioButton();
             this.textBox_leftScreen_YRes = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -122,6 +133,7 @@ namespace InformativeWallpaper
             this.radioButton_leftScreen_ImageFromFolder = new System.Windows.Forms.RadioButton();
             this.radioButton_leftScreen_StaticImage = new System.Windows.Forms.RadioButton();
             this.RightScreenGroupBox = new System.Windows.Forms.GroupBox();
+            this.radioButton_rightScreen_dilbertComic = new System.Windows.Forms.RadioButton();
             this.textBox_rightScreen_YRes = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -130,14 +142,13 @@ namespace InformativeWallpaper
             this.radioButton_rightScreen_staticImage = new System.Windows.Forms.RadioButton();
             this.textBox__rightScreen_path_Folder = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.radioButton_rightScreen_ImageFromFolder = new System.Windows.Forms.RadioButton();
             this.textBox__rightScreen_path_staticImage = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.button_start = new System.Windows.Forms.Button();
             this.button_stop = new System.Windows.Forms.Button();
             this.textBox_Intervall_seconds = new System.Windows.Forms.TextBox();
-            this.radioButton_leftScreen_dilbertComic = new System.Windows.Forms.RadioButton();
-            this.radioButton_rightScreen_dilbertComic = new System.Windows.Forms.RadioButton();
+            this.radioButton_rightScreenInactive = new System.Windows.Forms.RadioButton();
             this.LeftScreenGroupBox.SuspendLayout();
             this.RightScreenGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -162,9 +173,21 @@ namespace InformativeWallpaper
             this.LeftScreenGroupBox.TabStop = false;
             this.LeftScreenGroupBox.Text = "Left Screen";
             // 
+            // radioButton_leftScreen_dilbertComic
+            // 
+            this.radioButton_leftScreen_dilbertComic.AutoSize = true;
+            this.radioButton_leftScreen_dilbertComic.Location = new System.Drawing.Point(3, 62);
+            this.radioButton_leftScreen_dilbertComic.Name = "radioButton_leftScreen_dilbertComic";
+            this.radioButton_leftScreen_dilbertComic.Size = new System.Drawing.Size(87, 17);
+            this.radioButton_leftScreen_dilbertComic.TabIndex = 11;
+            this.radioButton_leftScreen_dilbertComic.TabStop = true;
+            this.radioButton_leftScreen_dilbertComic.Text = "Dilbert Comic";
+            this.radioButton_leftScreen_dilbertComic.UseVisualStyleBackColor = true;
+            this.radioButton_leftScreen_dilbertComic.CheckedChanged += new System.EventHandler(this.radioButton_leftScreen_dilbertComic_CheckedChanged);
+            // 
             // textBox_leftScreen_YRes
             // 
-            this.textBox_leftScreen_YRes.Location = new System.Drawing.Point(129, 182);
+            this.textBox_leftScreen_YRes.Location = new System.Drawing.Point(129, 202);
             this.textBox_leftScreen_YRes.Name = "textBox_leftScreen_YRes";
             this.textBox_leftScreen_YRes.Size = new System.Drawing.Size(100, 20);
             this.textBox_leftScreen_YRes.TabIndex = 10;
@@ -173,7 +196,7 @@ namespace InformativeWallpaper
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 188);
+            this.label8.Location = new System.Drawing.Point(16, 208);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(110, 13);
             this.label8.TabIndex = 9;
@@ -182,7 +205,7 @@ namespace InformativeWallpaper
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 132);
+            this.label4.Location = new System.Drawing.Point(16, 152);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 13);
             this.label4.TabIndex = 8;
@@ -191,7 +214,7 @@ namespace InformativeWallpaper
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 160);
+            this.label3.Location = new System.Drawing.Point(16, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 13);
             this.label3.TabIndex = 7;
@@ -200,7 +223,7 @@ namespace InformativeWallpaper
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 104);
+            this.label2.Location = new System.Drawing.Point(16, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 2;
@@ -208,7 +231,7 @@ namespace InformativeWallpaper
             // 
             // textBox_leftScreen_XRes
             // 
-            this.textBox_leftScreen_XRes.Location = new System.Drawing.Point(129, 156);
+            this.textBox_leftScreen_XRes.Location = new System.Drawing.Point(129, 176);
             this.textBox_leftScreen_XRes.Name = "textBox_leftScreen_XRes";
             this.textBox_leftScreen_XRes.Size = new System.Drawing.Size(100, 20);
             this.textBox_leftScreen_XRes.TabIndex = 5;
@@ -216,7 +239,7 @@ namespace InformativeWallpaper
             // 
             // textBox__leftScreen_path_Folder
             // 
-            this.textBox__leftScreen_path_Folder.Location = new System.Drawing.Point(129, 130);
+            this.textBox__leftScreen_path_Folder.Location = new System.Drawing.Point(129, 150);
             this.textBox__leftScreen_path_Folder.Name = "textBox__leftScreen_path_Folder";
             this.textBox__leftScreen_path_Folder.Size = new System.Drawing.Size(100, 20);
             this.textBox__leftScreen_path_Folder.TabIndex = 4;
@@ -224,7 +247,7 @@ namespace InformativeWallpaper
             // 
             // textBox__leftScreen_path_staticImage
             // 
-            this.textBox__leftScreen_path_staticImage.Location = new System.Drawing.Point(129, 104);
+            this.textBox__leftScreen_path_staticImage.Location = new System.Drawing.Point(129, 124);
             this.textBox__leftScreen_path_staticImage.Name = "textBox__leftScreen_path_staticImage";
             this.textBox__leftScreen_path_staticImage.Size = new System.Drawing.Size(100, 20);
             this.textBox__leftScreen_path_staticImage.TabIndex = 3;
@@ -256,6 +279,7 @@ namespace InformativeWallpaper
             // 
             // RightScreenGroupBox
             // 
+            this.RightScreenGroupBox.Controls.Add(this.radioButton_rightScreenInactive);
             this.RightScreenGroupBox.Controls.Add(this.radioButton_rightScreen_dilbertComic);
             this.RightScreenGroupBox.Controls.Add(this.textBox_rightScreen_YRes);
             this.RightScreenGroupBox.Controls.Add(this.label7);
@@ -275,9 +299,21 @@ namespace InformativeWallpaper
             this.RightScreenGroupBox.Text = "Right Screen";
             this.RightScreenGroupBox.Enter += new System.EventHandler(this.groupBox_RightScreen_Enter);
             // 
+            // radioButton_rightScreen_dilbertComic
+            // 
+            this.radioButton_rightScreen_dilbertComic.AutoSize = true;
+            this.radioButton_rightScreen_dilbertComic.Location = new System.Drawing.Point(6, 87);
+            this.radioButton_rightScreen_dilbertComic.Name = "radioButton_rightScreen_dilbertComic";
+            this.radioButton_rightScreen_dilbertComic.Size = new System.Drawing.Size(87, 17);
+            this.radioButton_rightScreen_dilbertComic.TabIndex = 13;
+            this.radioButton_rightScreen_dilbertComic.TabStop = true;
+            this.radioButton_rightScreen_dilbertComic.Text = "Dilbert Comic";
+            this.radioButton_rightScreen_dilbertComic.UseVisualStyleBackColor = true;
+            this.radioButton_rightScreen_dilbertComic.CheckedChanged += new System.EventHandler(this.radioButton_rightScreen_dilbertComic_CheckedChanged);
+            // 
             // textBox_rightScreen_YRes
             // 
-            this.textBox_rightScreen_YRes.Location = new System.Drawing.Point(119, 183);
+            this.textBox_rightScreen_YRes.Location = new System.Drawing.Point(119, 204);
             this.textBox_rightScreen_YRes.Name = "textBox_rightScreen_YRes";
             this.textBox_rightScreen_YRes.Size = new System.Drawing.Size(100, 20);
             this.textBox_rightScreen_YRes.TabIndex = 12;
@@ -286,7 +322,7 @@ namespace InformativeWallpaper
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 189);
+            this.label7.Location = new System.Drawing.Point(7, 210);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(110, 13);
             this.label7.TabIndex = 11;
@@ -295,7 +331,7 @@ namespace InformativeWallpaper
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 161);
+            this.label6.Location = new System.Drawing.Point(6, 182);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 13);
             this.label6.TabIndex = 10;
@@ -304,7 +340,7 @@ namespace InformativeWallpaper
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 133);
+            this.label5.Location = new System.Drawing.Point(6, 154);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 9;
@@ -312,7 +348,7 @@ namespace InformativeWallpaper
             // 
             // textBox_rightScreen_XRes
             // 
-            this.textBox_rightScreen_XRes.Location = new System.Drawing.Point(119, 157);
+            this.textBox_rightScreen_XRes.Location = new System.Drawing.Point(119, 178);
             this.textBox_rightScreen_XRes.Name = "textBox_rightScreen_XRes";
             this.textBox_rightScreen_XRes.Size = new System.Drawing.Size(100, 20);
             this.textBox_rightScreen_XRes.TabIndex = 8;
@@ -321,7 +357,7 @@ namespace InformativeWallpaper
             // radioButton_rightScreen_staticImage
             // 
             this.radioButton_rightScreen_staticImage.AutoSize = true;
-            this.radioButton_rightScreen_staticImage.Location = new System.Drawing.Point(6, 16);
+            this.radioButton_rightScreen_staticImage.Location = new System.Drawing.Point(6, 41);
             this.radioButton_rightScreen_staticImage.Name = "radioButton_rightScreen_staticImage";
             this.radioButton_rightScreen_staticImage.Size = new System.Drawing.Size(84, 17);
             this.radioButton_rightScreen_staticImage.TabIndex = 3;
@@ -332,7 +368,7 @@ namespace InformativeWallpaper
             // 
             // textBox__rightScreen_path_Folder
             // 
-            this.textBox__rightScreen_path_Folder.Location = new System.Drawing.Point(119, 131);
+            this.textBox__rightScreen_path_Folder.Location = new System.Drawing.Point(119, 152);
             this.textBox__rightScreen_path_Folder.Name = "textBox__rightScreen_path_Folder";
             this.textBox__rightScreen_path_Folder.Size = new System.Drawing.Size(100, 20);
             this.textBox__rightScreen_path_Folder.TabIndex = 7;
@@ -341,7 +377,7 @@ namespace InformativeWallpaper
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 105);
+            this.label1.Location = new System.Drawing.Point(6, 126);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 6;
@@ -350,7 +386,7 @@ namespace InformativeWallpaper
             // radioButton_rightScreen_ImageFromFolder
             // 
             this.radioButton_rightScreen_ImageFromFolder.AutoSize = true;
-            this.radioButton_rightScreen_ImageFromFolder.Location = new System.Drawing.Point(6, 39);
+            this.radioButton_rightScreen_ImageFromFolder.Location = new System.Drawing.Point(6, 64);
             this.radioButton_rightScreen_ImageFromFolder.Name = "radioButton_rightScreen_ImageFromFolder";
             this.radioButton_rightScreen_ImageFromFolder.Size = new System.Drawing.Size(111, 17);
             this.radioButton_rightScreen_ImageFromFolder.TabIndex = 4;
@@ -362,11 +398,20 @@ namespace InformativeWallpaper
             // textBox__rightScreen_path_staticImage
             // 
             this.textBox__rightScreen_path_staticImage.Enabled = false;
-            this.textBox__rightScreen_path_staticImage.Location = new System.Drawing.Point(119, 105);
+            this.textBox__rightScreen_path_staticImage.Location = new System.Drawing.Point(119, 126);
             this.textBox__rightScreen_path_staticImage.Name = "textBox__rightScreen_path_staticImage";
             this.textBox__rightScreen_path_staticImage.Size = new System.Drawing.Size(100, 20);
             this.textBox__rightScreen_path_staticImage.TabIndex = 6;
             this.textBox__rightScreen_path_staticImage.TextChanged += new System.EventHandler(this.textBox__rightScreen_path_staticImage_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(15, 272);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(146, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Change Intervall in Seconds: ";
             // 
             // button_start
             // 
@@ -388,15 +433,6 @@ namespace InformativeWallpaper
             this.button_stop.UseVisualStyleBackColor = true;
             this.button_stop.Click += new System.EventHandler(this.button_stop_Click);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 272);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(146, 13);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Change Intervall in Seconds: ";
-            // 
             // textBox_Intervall_seconds
             // 
             this.textBox_Intervall_seconds.Location = new System.Drawing.Point(167, 269);
@@ -405,29 +441,17 @@ namespace InformativeWallpaper
             this.textBox_Intervall_seconds.TabIndex = 7;
             this.textBox_Intervall_seconds.TextChanged += new System.EventHandler(this.textBox_Intervall_seconds_TextChanged);
             // 
-            // radioButton_leftScreen_dilbertComic
+            // radioButton_rightScreenInactive
             // 
-            this.radioButton_leftScreen_dilbertComic.AutoSize = true;
-            this.radioButton_leftScreen_dilbertComic.Location = new System.Drawing.Point(3, 62);
-            this.radioButton_leftScreen_dilbertComic.Name = "radioButton_leftScreen_dilbertComic";
-            this.radioButton_leftScreen_dilbertComic.Size = new System.Drawing.Size(87, 17);
-            this.radioButton_leftScreen_dilbertComic.TabIndex = 11;
-            this.radioButton_leftScreen_dilbertComic.TabStop = true;
-            this.radioButton_leftScreen_dilbertComic.Text = "Dilbert Comic";
-            this.radioButton_leftScreen_dilbertComic.UseVisualStyleBackColor = true;
-            this.radioButton_leftScreen_dilbertComic.CheckedChanged += new System.EventHandler(this.radioButton_leftScreen_dilbertComic_CheckedChanged);
-            // 
-            // radioButton_rightScreen_dilbertComic
-            // 
-            this.radioButton_rightScreen_dilbertComic.AutoSize = true;
-            this.radioButton_rightScreen_dilbertComic.Location = new System.Drawing.Point(6, 62);
-            this.radioButton_rightScreen_dilbertComic.Name = "radioButton_rightScreen_dilbertComic";
-            this.radioButton_rightScreen_dilbertComic.Size = new System.Drawing.Size(87, 17);
-            this.radioButton_rightScreen_dilbertComic.TabIndex = 13;
-            this.radioButton_rightScreen_dilbertComic.TabStop = true;
-            this.radioButton_rightScreen_dilbertComic.Text = "Dilbert Comic";
-            this.radioButton_rightScreen_dilbertComic.UseVisualStyleBackColor = true;
-            this.radioButton_rightScreen_dilbertComic.CheckedChanged += new System.EventHandler(this.radioButton_rightScreen_dilbertComic_CheckedChanged);
+            this.radioButton_rightScreenInactive.AutoSize = true;
+            this.radioButton_rightScreenInactive.Location = new System.Drawing.Point(6, 18);
+            this.radioButton_rightScreenInactive.Name = "radioButton_rightScreenInactive";
+            this.radioButton_rightScreenInactive.Size = new System.Drawing.Size(109, 17);
+            this.radioButton_rightScreenInactive.TabIndex = 14;
+            this.radioButton_rightScreenInactive.TabStop = true;
+            this.radioButton_rightScreenInactive.Text = "Screen not active";
+            this.radioButton_rightScreenInactive.UseVisualStyleBackColor = true;
+            this.radioButton_rightScreenInactive.CheckedChanged += new System.EventHandler(this.radioButton_rightScreenInactive_CheckedChanged);
             // 
             // WallpaperConfigControl
             // 
@@ -459,22 +483,13 @@ namespace InformativeWallpaper
             textBox_leftScreen_YRes.Text = config.y_resolution_left_screen.ToString();
             textBox_rightScreen_XRes.Text = config.x_resolution_right_screen.ToString();
             textBox_rightScreen_YRes.Text = config.y_resolution_right_screen.ToString();
-            if (config.leftScreenStatic)
-            {
-                textBox__leftScreen_path_staticImage.Text = config.leftScreenImageSource;
-            }
-            else
-            {
-                textBox__leftScreen_path_Folder.Text = config.leftScreenImageSource;
-            }
-            if (config.rightScreenStatic)
-            {
-                textBox__rightScreen_path_staticImage.Text = config.rightScreenImageSource;
-            }
-            else
-            {
-                textBox__rightScreen_path_Folder.Text = config.rightScreenImageSource;
-            }
+
+            textBox__leftScreen_path_staticImage.Enabled = false;
+            textBox__leftScreen_path_Folder.Enabled = false;
+            textBox__leftScreen_path_staticImage.Text = config.leftScreenImageSource;
+            textBox__leftScreen_path_Folder.Text = config.leftScreenImageSource;
+            textBox__rightScreen_path_staticImage.Text = config.rightScreenImageSource;
+            textBox__rightScreen_path_Folder.Text = config.rightScreenImageSource;
             
         }
 

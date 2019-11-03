@@ -35,14 +35,14 @@
             // 
             this.wallpaperConfigControl.Location = new System.Drawing.Point(12, 12);
             this.wallpaperConfigControl.Name = "wallpaperConfigControl";
-            this.wallpaperConfigControl.Size = new System.Drawing.Size(616, 325);
+            this.wallpaperConfigControl.Size = new System.Drawing.Size(616, 403);
             this.wallpaperConfigControl.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 386);
+            this.ClientSize = new System.Drawing.Size(669, 414);
             this.Controls.Add(this.wallpaperConfigControl);
             this.Name = "Form1";
             this.Text = "Tesform";

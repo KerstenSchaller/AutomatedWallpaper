@@ -45,15 +45,19 @@ namespace InformativeWallpaper
         private Bitmap[] createBitmapsAccordingtoConfig()
         {
             Bitmap[] bitmaps;
-            string[] right_screen_images;
-            if (config.rightScreenStatic == false)
-            {
-                right_screen_images = getImagesfromFolder(config.rightScreenImageSource);                
+            string[] right_screen_images= { "" };
+            if (config.rightScreenActive == true)
+            { 
+                if (config.rightScreenStatic == false)
+                {
+                    right_screen_images = getImagesfromFolder(config.rightScreenImageSource);                
+                }
+                else
+                {
+                    right_screen_images = new string[] { config.rightScreenImageSource };
+                }
             }
-            else
-            {
-                right_screen_images = new string[] { config.rightScreenImageSource };
-            }
+
             string[] left_screen_images = {"" };
             if (config.leftScreenComic == false)
             { 
@@ -66,11 +70,7 @@ namespace InformativeWallpaper
                     left_screen_images = new string[] { config.leftScreenImageSource };
                 }
             }
-
-
-
-           
-
+            
             try
             {
                 Bitmap leftimage;
@@ -83,9 +83,12 @@ namespace InformativeWallpaper
                 {
                     leftimage = new Bitmap(left_screen_images[loop_cntr_left]);
                 }
-                var rightimage = right_screen_images[loop_cntr_right];
-                
-                bitmaps = new Bitmap[] { leftimage, new Bitmap(rightimage) };
+                Bitmap rightimage = new Bitmap(100,100);
+                if (config.rightScreenActive)
+                { 
+                     rightimage = new Bitmap(right_screen_images[loop_cntr_right]);
+                }
+                bitmaps = new Bitmap[] { leftimage, rightimage };
             }
             catch (Exception e)
             {
@@ -127,7 +130,16 @@ namespace InformativeWallpaper
         {
             Bitmap[] bitmaps = createBitmapsAccordingtoConfig();
             if (bitmaps == null) return;
-            wallpaper = ImageProcessor.Combine(bitmaps, config.x_resolution_left_screen + config.x_resolution_right_screen, Math.Max(config.y_resolution_left_screen,config.y_resolution_right_screen), config.x_resolution_left_screen );
+            if (config.rightScreenActive == true)
+            {
+                wallpaper = ImageProcessor.Combine(bitmaps, config.x_resolution_left_screen + config.x_resolution_right_screen, Math.Max(config.y_resolution_left_screen, config.y_resolution_right_screen), config.x_resolution_left_screen);
+            }
+            else
+            {
+                wallpaper = bitmaps[0];
+            }
+            
+
             WallpaperController wp_controller = new WallpaperController();
             wp_controller.Set_desktop_wallpaper(wallpaper);
 

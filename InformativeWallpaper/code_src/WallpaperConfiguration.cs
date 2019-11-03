@@ -71,6 +71,7 @@ namespace InformativeWallpaper
     public class WallPaperConfigurationValues
     {
         public WallPaperConfigurationValues() { }
+        public bool rightScreenActive = false;
         public Int32 x_resolution_left_screen = 1000;
         public Int32 y_resolution_left_screen = 1000;
         public Int32 x_resolution_right_screen = 1000;
