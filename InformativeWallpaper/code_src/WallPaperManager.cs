@@ -6,6 +6,8 @@ using System.Timers;
 using System.Windows.Forms;
 
 using DailyDilbertViewer;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 namespace InformativeWallpaper
 {
@@ -101,11 +103,26 @@ namespace InformativeWallpaper
                 result = MessageBox.Show(message, caption, buttons);
                 return null;
             }
+
             
-            
-            //scale images
-            bitmaps[0] = ImageProcessor.ResizeImage(bitmaps[0], config.x_resolution_left_screen, config.y_resolution_left_screen);
-            bitmaps[1] = ImageProcessor.ResizeImage(bitmaps[1], config.x_resolution_right_screen, config.y_resolution_right_screen);
+            if (config.leftScreenComic == false)
+            {
+                bitmaps[0] = ImageProcessor.ResizeImage(bitmaps[0], config.x_resolution_left_screen, config.y_resolution_left_screen);
+            }
+            else
+            {
+                bitmaps[0] = this.embeddImage(bitmaps[0]);
+                
+            }
+            if (config.rightScreenComic == false && config.rightScreenActive)
+            {
+                bitmaps[1] = ImageProcessor.ResizeImage(bitmaps[1], config.x_resolution_right_screen, config.y_resolution_right_screen);
+            }
+            else
+            {
+                bitmaps[1] = this.embeddImage(bitmaps[1]);
+            }
+
 
             if (loop_cntr_left == left_screen_images.Length-1)
             {
@@ -126,6 +143,31 @@ namespace InformativeWallpaper
             return bitmaps;
         }
 
+        private Bitmap embeddImage(Bitmap bitmap)
+        {
+
+
+
+
+            Bitmap blank = new Bitmap(config.x_resolution_left_screen, config.y_resolution_left_screen);
+            Graphics g = Graphics.FromImage(blank);
+            g.Clear(Color.Black);
+            
+            using (var wrapMode = new ImageAttributes())
+            {
+                wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                int dest_x = (config.x_resolution_left_screen / 2) - (bitmap.Width / 2);
+                int dest_y = (config.y_resolution_left_screen / 2) - (bitmap.Height / 2);
+                var destRect = new Rectangle(dest_x, dest_y, bitmap.Width, bitmap.Height);
+                g.DrawImage(bitmap, destRect, 0, 0, bitmap.Width, bitmap.Height, GraphicsUnit.Pixel, wrapMode);
+            }
+
+            var ret = new Bitmap(blank);
+            return ret;
+            
+
+        }
+
         private void updateWallpaper()
         {
             Bitmap[] bitmaps = createBitmapsAccordingtoConfig();
@@ -136,6 +178,7 @@ namespace InformativeWallpaper
             }
             else
             {
+                bitmaps[0].Save("wp1.jpg");
                 wallpaper = bitmaps[0];
             }
             
