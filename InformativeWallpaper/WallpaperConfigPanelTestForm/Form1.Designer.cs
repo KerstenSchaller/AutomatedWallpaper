@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.wallpaperConfigControl1 = new InformativeWallpaper.WallpaperConfigControl();
+            this.wallpaperConfigControl = new InformativeWallpaper.WallpaperConfigControl();
             this.SuspendLayout();
             // 
-            // wallpaperConfigControl1
+            // wallpaperConfigControl
             // 
-            this.wallpaperConfigControl1.Location = new System.Drawing.Point(12, 12);
-            this.wallpaperConfigControl1.Name = "wallpaperConfigControl1";
-            this.wallpaperConfigControl1.Size = new System.Drawing.Size(616, 325);
-            this.wallpaperConfigControl1.TabIndex = 0;
+            this.wallpaperConfigControl.Location = new System.Drawing.Point(12, 12);
+            this.wallpaperConfigControl.Name = "wallpaperConfigControl";
+            this.wallpaperConfigControl.Size = new System.Drawing.Size(616, 325);
+            this.wallpaperConfigControl.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 386);
-            this.Controls.Add(this.wallpaperConfigControl1);
+            this.Controls.Add(this.wallpaperConfigControl);
             this.Name = "Form1";
             this.Text = "Tesform";
             this.ResumeLayout(false);
@@ -52,7 +52,7 @@
 
         #endregion
 
-        private InformativeWallpaper.WallpaperConfigControl wallpaperConfigControl1;
+        private InformativeWallpaper.WallpaperConfigControl wallpaperConfigControl;
     }
 }
 

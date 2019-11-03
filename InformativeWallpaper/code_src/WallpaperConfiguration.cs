@@ -78,6 +78,8 @@ namespace InformativeWallpaper
         public Int32 intervall_in_seconds = 15;
         public bool leftScreenStatic = false;
         public bool rightScreenStatic = false;
+        public bool leftScreenComic = false;
+        public bool rightScreenComic = false;
         public string leftScreenImageSource = Directory.GetCurrentDirectory();
         public string rightScreenImageSource = Directory.GetCurrentDirectory();
     }

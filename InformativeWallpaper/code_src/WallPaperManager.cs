@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Timers;
 using System.Windows.Forms;
+
+using DailyDilbertViewer;
 
 namespace InformativeWallpaper
 {
     class WallPaperManager
     {
-        /*
-	- function load images from folder
-	*/
+ 
+        /* function load images from folder */
         Bitmap wallpaper;
         WallPaperConfigurationValues config = new WallPaperConfigurationValues();
         WallpaperController wp_controller = new WallpaperController();
@@ -49,46 +48,44 @@ namespace InformativeWallpaper
             string[] right_screen_images;
             if (config.rightScreenStatic == false)
             {
-                right_screen_images = getImagesfromFolder(config.rightScreenImageSource);
+                right_screen_images = getImagesfromFolder(config.rightScreenImageSource);                
             }
             else
             {
                 right_screen_images = new string[] { config.rightScreenImageSource };
             }
-            string[] left_screen_images;
-            if (config.leftScreenStatic == false)
-            {
-                left_screen_images = getImagesfromFolder(config.leftScreenImageSource);
-            }
-            else
-            {
-                left_screen_images = new string[] { config.leftScreenImageSource };
-            }
-            
-
-
-            /*If folder is same for both screens share the images between the screens*/
-            if (config.rightScreenImageSource == config.leftScreenImageSource)
-            {
-                List<string> right_screen_images_temp = new List<string>();
-                List<string> left_screen_images_temp = new List<string>();
-                for (int i = 0; i < right_screen_images.Length-1; i += 2)
+            string[] left_screen_images = {"" };
+            if (config.leftScreenComic == false)
+            { 
+                if (config.leftScreenStatic == false)
                 {
-                    left_screen_images_temp.Add(right_screen_images[i]);
-                    right_screen_images_temp.Add(right_screen_images[i+1]);
+                    left_screen_images = getImagesfromFolder(config.leftScreenImageSource);
                 }
-                left_screen_images = left_screen_images_temp.ToArray();
-                right_screen_images = right_screen_images_temp.ToArray();
+                else
+                {
+                    left_screen_images = new string[] { config.leftScreenImageSource };
+                }
             }
+
+
 
            
 
             try
             {
-                var leftimage = left_screen_images[loop_cntr_left];
+                Bitmap leftimage;
+                if (config.leftScreenComic == true)
+                {
+                    DilbertReceiver comicReceiver = new DilbertReceiver();
+                    leftimage = (Bitmap)comicReceiver.getDilbertComicImageByDate(DateTime.Now);
+                }
+                else
+                {
+                    leftimage = new Bitmap(left_screen_images[loop_cntr_left]);
+                }
                 var rightimage = right_screen_images[loop_cntr_right];
                 
-                bitmaps = new Bitmap[] { new Bitmap(leftimage), new Bitmap(rightimage) };
+                bitmaps = new Bitmap[] { leftimage, new Bitmap(rightimage) };
             }
             catch (Exception e)
             {
@@ -141,7 +138,8 @@ namespace InformativeWallpaper
             string source_folder = source;
             if (Directory.Exists(source_folder))
             {
-                string[] files = Directory.GetFiles(source_folder,"*JPG|*jpg|*bmp|*jpeg|*JPEG");
+                //string[] files = Directory.GetFiles(source_folder,"*|*JPG|*jpg|*bmp|*jpeg|*JPEG");
+                string[] files = Directory.GetFiles(source_folder, "*");
                 return files;
             }
             return new string[] {""};

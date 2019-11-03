@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WallpaperConfigPanelTestForm</RootNamespace>
     <AssemblyName>WallpaperConfigPanelTestForm</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ComicReceiverLib">
+      <HintPath>..\..\submodules\ComicViewer\ComicReceiverLib\bin\Debug\ComicReceiverLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,16 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\submodules\ComicViewer\DailyDilbertViewer\DilbertReceiver.cs">
-      <Link>DilbertReceiver.cs</Link>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="..\..\submodules\ComicViewer\DailyDilbertViewer\ImageHandler.cs">
-      <Link>ImageHandler.cs</Link>
-    </Compile>
-    <Compile Include="..\..\submodules\ComicViewer\DailyDilbertViewer\MetaFileHandler.cs">
-      <Link>MetaFileHandler.cs</Link>
-    </Compile>
     <Compile Include="..\code_src\ImageProcessor.cs">
       <Link>ImageProcessor.cs</Link>
     </Compile>
@@ -103,6 +97,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -116,9 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ErrorResponse.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
